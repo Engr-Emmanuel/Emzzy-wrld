@@ -1,0 +1,61 @@
+div
+{
+  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  padding: 5%;
+  text-align: center;
+}
+body
+{
+  background-image: url('images/emmy.jpg');
+  background-size: cover;
+  background-repeat: yes;
+  background-position: center;
+  margin: 0;
+}
+.header
+{
+  width:70%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height:50px;
+  background: honeydew;
+  color: darkblue;
+}
+.content
+{
+  width:70%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height:50px;
+  background: honeydew;
+  color: darkblue;
+}
+button
+{
+  background-color: red;
+  color: whitesmoke;
+  box-shadow: 0 4 12 rgba(0, 0, 0, 0.8);
+}
+.after
+{
+  position: absolute;
+  right: 0;
+  bottom: 0%;
+  margin-bottom: 5%;
+  margin-right: 50%;
+}
+.before
+{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 5%;
+  margin-right: 3%;
+}
+.effect
+{
+  color: black;
+  background-color: white;
+  margin-top: 30px;
+}

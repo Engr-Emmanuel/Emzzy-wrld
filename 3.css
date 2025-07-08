@@ -1,0 +1,41 @@
+.header
+{
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  width:100%;
+  background-color: #ffe4ca;
+  color: springgreen;
+  font-family: "New Times Romans", serif;
+  padding: 10%;
+  text-align: center;
+}
+.box
+{
+  width: 50%;
+  height: 300px; 
+  background: papayawhip;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+button
+{
+  border: 10%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  shape-margin: 20%;
+  margin-right: 25%;
+  background: cyan;
+  clip-path: 20px;
+  padding: 5px;
+  width: 75%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  margin-left: 0px;
+}
+body
+{
+  background-image: url('images/emy.jpg');
+  background-size: cover;
+  background-repeat: yes;
+  background-position: center;
+  margin: 0;
+}
+
