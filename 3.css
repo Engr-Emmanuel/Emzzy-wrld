@@ -32,7 +32,7 @@ button
 }
 body
 {
-  background-image: url('images/emy.jpg');
+  background-image: url('emy.jpg');
   background-size: cover;
   background-repeat: yes;
   background-position: center;
