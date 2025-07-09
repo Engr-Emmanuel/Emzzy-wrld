@@ -34,7 +34,8 @@ body
 button
 {
   background-color: red;
-  color: whitesmoke;
+  color: black;
+  Width: 20px;
   box-shadow: 0 4 12 rgba(0, 0, 0, 0.8);
 }
 .after
@@ -55,7 +56,7 @@ button
 }
 .effect
 {
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: black;
   margin-top: 30px;
 }
