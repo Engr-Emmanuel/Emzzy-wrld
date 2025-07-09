@@ -12,6 +12,7 @@ body
   background-repeat: yes;
   background-position: center;
   margin: 0;
+  background-attachment: fixed;
 }
 .header
 {
