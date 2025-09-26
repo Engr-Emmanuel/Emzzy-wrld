@@ -23,7 +23,8 @@ button
   margin-top: 10px;
   shape-margin: 20%;
   margin-right: 25%;
-  background: cyan;
+  background: black;
+  Color: papayawhip;
   clip-path: 20px;
   padding: 5px;
   width: 75%;
@@ -32,7 +33,7 @@ button
 }
 body
 {
-  background-image: url('emy.jpg');
+ /* background-image: url('emy.jpg');*/
   background-size: cover;
   background-repeat: yes;
   background-position: center;
