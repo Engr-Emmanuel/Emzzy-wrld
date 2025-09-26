@@ -1,25 +1,161 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.5">
-  <link rel="stylesheet" href="3.css">
-  <title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>SGPA & CGPA Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/cgpa.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="header">
-  <h3>Welcome to Emzzy's wrld</h3>
-  </div>
-  <div class="box">
-    <ul>
-      <a href="about me.html">
-      <button>about<br> me</button></a>
-      <a href="two.html"><button>user<br> guide</button></a>
-      <a href="pd table.html"><button>periodic<br> table</button></a>
-      <a href="cgpa.html"><button>CGPA Calcu lator</button>
-    </ul>
-  </div>
+    <a href="index.html">
+        <button class="before">Home</button>
+    </a>
+    <h3 class="content">Welcome to Semester Grade Point Average (SGPA) and <br> Cumulative Grade Point Average (CGPA) Calculator</h3>
+
+    <!-- User Name Input for Dynamic Advice -->
+    <div class="box">
+        <label for="user-name">Your Name:</label>
+        <input type="text" id="user-name" placeholder="Enter your name (optional for personalized advice)">
+    </div>
+
+    <!-- Current Level Select -->
+    <div class="box">
+        <label for="current-level">Current Level:</label>
+        <select id="current-level" required>
+            <option value="">--Select Level--</option>
+            <option value="100">100L</option>
+            <option value="200">200L</option>
+            <option value="300">300L</option>
+            <option value="400">400L</option>
+            <option value="500">500L</option>
+        </select>
+    </div>
+
+    <!-- Instructions Section for User-Friendliness -->
+    <div class="instructions">
+        <h3>How to Use This Calculator</h3>
+        <ul>
+            <li><strong>Select Your Level:</strong> Choose your current academic level before proceeding.</li>
+            <li><strong>SGPA Calculator:</strong> Select grades (A=5, B=4, C=3, D=2, E=1, F=0) and enter credits for each course. Click "Add Course" for more subjects. Then, "Calculate SGPA" and "Add SGPA to Table".</li>
+            <li><strong>Direct SGPA Addition:</strong> If you know your SGPA, enter it directly and add to the table.</li>
+            <li><strong>CGPA Calculator:</strong> Add multiple SGPAs to the table (max 10), then click "Calculate CGPA" to get the average.</li>
+            <li><strong>CGPA Predictor:</strong> Enter your desired CGPA; semesters left is auto-calculated (10 max semesters).</li>
+            <li><strong>Charts:</strong> View SGPA breakdown charts and CGPA trend after calculations.</li>
+            <li><strong>Clear All:</strong> Reset everything.</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h1>SGPA & CGPA Calculator</h1>
+        <h2>SGPA Calculator (Single Semester)</h2>
+        <form id="sgpa-form">
+            <label for="grade1">Grade 1:</label>
+            <select id="grade1" class="grade-field" name="grade1">
+                <option value="">--Select--</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+            </select>
+            <label for="credit1">Credit 1:</label>
+            <input type="number" id="credit1" class="credit-field" name="credit1" min="0" placeholder="e.g. 3">
+
+            <label for="grade2">Grade 2:</label>
+            <select id="grade2" class="grade-field" name="grade2">
+                <option value="">--Select--</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+            </select>
+            <label for="credit2">Credit 2:</label>
+            <input type="number" id="credit2" class="credit-field" name="credit2" min="0" placeholder="e.g. 4">
+
+            <label for="grade3">Grade 3:</label>
+            <select id="grade3" class="grade-field" name="grade3">
+                <option value="">--Select--</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+            </select>
+            <label for="credit3">Credit 3:</label>
+            <input type="number" id="credit3" class="credit-field" name="credit3" min="0" placeholder="e.g. 3">
+            
+            <!-- Buttons for SGPA -->
+            <button type="button" id="add-course-button">Add Course</button>
+            <button type="button" id="calculate-sgpa-button">Calculate SGPA</button>
+            <button type="button" id="add-to-table-button">Add SGPA to Table</button>
+            <p id="sgpa-result"></p>
+        </form>
+
+        <!-- SGPA Charts Container -->
+        <div id="sgpa-charts-container"></div>
+    </div>
+
+    <div class="box">
+        <h2>Direct SGPA Addition (if known)</h2>
+        <label for="direct-sgpa">SGPA:</label>
+        <input type="number" id="direct-sgpa" min="0" max="5" step="0.01" placeholder="e.g. 4.25">
+        <button type="button" id="add-direct-to-table-button">Add Direct SGPA to Table</button>
+
+        <h2>CGPA Calculator (Cumulative)</h2>
+        <table id="sgpa-table">
+            <thead>
+                <tr>
+                    <th>Semester</th>
+                    <th>SGPA</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows added dynamically -->
+            </tbody>
+        </table>
+        <button type="button" id="calculate-cgpa-button">Calculate CGPA</button>
+        <p id="cgpa-result"></p>
+        <button type="button" id="view-chart-button">View Charts</button>
+        <div id="chart-container">
+            <canvas id="sgpa-chart"></canvas>
+            <canvas id="cgpa-trend-chart"></canvas>
+        </div>
+ 
+        <h2>CGPA Predictor</h2>
+        <label for="desired-cgpa">Desired CGPA:</label>
+        <input type="number" id="desired-cgpa" min="0" max="5" step="0.01" placeholder="e.g. 4.50">
+        <label for="semesters-left">Semesters Left:</label>
+        <input type="number" id="semesters-left" min="1" max="10" step="1" placeholder="Auto-calculated" readonly>
+        <button type="button" id="predict-button">Predict Required SGPA</button>
+        <p id="predict-result"></p>
+        <p id="advice"></p>
+
+        <button type="button" id="clear-all-button">Clear All</button>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="popup-modal" class="modal">
+        <div class="modal-content">
+            <p id="popup-message"></p>
+            <button id="add-more-btn">Add More</button>
+            <button id="proceed-btn">Proceed</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="copyright_text">
+            <center><h3>Copyright All rights Reserved <a href="#">@Emmanuel Paul</a></h3></center>
+            <center><h4>Follow me on <a href="#">Github</a>, <a href="#">Instagram</a>, <a href="#">Facebook</a></h4></center>
+        </div>
+    </footer>
+
+    <script src="scripts/cgpa.js"></script>
 </body>
 </html>
